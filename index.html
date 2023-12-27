@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+</head>
+
+<style>
+    
+    body{
+        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    }
+    
+    .container{
+        width: 90vw;
+        height: 100vh;;
+        margin-left: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10vw;
+    }
+    section2{
+        display: grid;
+    }
+    section1{
+        display: grid;
+    }
+    .numb{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+        
+    }
+    section3{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        #qq{
+            height: 40px;
+
+        }
+        #cc{
+            height: 40px;
+        }
+    }
+    #but{
+        
+        height: 20px;
+        border-radius: 10px;
+        background-color: red;
+    }
+    #rr{
+        visibility: hidden;
+    }
+</style>
+<body>
+    <div class="container">
+        <section1> <h1>Welcome to Wish Fulfillment </h1>
+    <h2>we are here to make wishes come true </h2>
+    
+    <h4>before that you have to just guess the ramdom number </h4>
+    <h4>if it matches then you are able to write your wishes </h4>
+
+
+    <label name="wish"><h1>Guess the number between 0-9 </h1></label>
+   
+    <br>
+
+    <div class="numb" >
+        <button id="but" >1</button>
+        <button id="but" >2</button>
+        <button id="but" >3</button>
+        <button id="but" >4</button>
+        <button id="but" >5</button>
+        <button id="but" >6</button>
+        <button id="but" >7</button>
+        <button id="but" >8</button>
+        <button id="but" >9</button>
+        <button id="but" >0</button>
+
+    </div>
+    <br>
+<br>
+    <section3>
+        <div> <h4 >Your number</h4>
+        <input type="text" id="qq"></div>
+
+        <div>
+            <h4>required number was</h4>
+            <input type="text" id="cc">
+        </div>
+       
+    </section3>
+    
+</section1>
+   
+
+    <section2 id="rr">
+        <img src="./genie-lamp.gif" id="gin">
+        <label name="wish1"><h1>make your   wish </h1></label>
+    <input type="text" name="wish1" id="kk">
+
+   
+    </section2>
+
+    
+        
+    </div>
+
+    <script>
+
+    function randomm(){
+    
+    let num=Math.random()*10
+    num=Math.round(num)
+
+    return num
+
+}
+let your=document.getElementById('qq')
+let required=document.getElementById('cc')
+let aa=document.querySelectorAll('#but')
+let sec=document.getElementById('rr')
+let string=""
+Array.from(aa).forEach(element => {
+    element.addEventListener('click',(e)=>{
+        string=e.target.innerHTML
+        your.value=string
+    let ra=randomm()
+    let num=parseInt(string)
+        if(ra===num){
+            sec.style.visibility="visible"
+        }else if(randomm()<num){
+            alert('not matched please try again')
+        }else{
+            alert('not matched please try again')
+        }
+        required.value=ra
+        string=""
+    
+    })
+    
+});
+
+
+
+
+
+
+    </script>
+</body>
+</html>
